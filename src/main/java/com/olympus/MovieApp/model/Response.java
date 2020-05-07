@@ -1,12 +1,11 @@
-package model;
+package com.olympus.MovieApp.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import org.springframework.stereotype.Component;
 
 import java.io.Serializable;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Response implements Serializable {
+public class Response {
 
     private Feed feed;
 
@@ -18,7 +17,4 @@ public class Response implements Serializable {
         this.feed = feed;
     }
 
-    public Response(Feed feed) {
-        this.feed = feed;
-    }
 }

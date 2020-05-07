@@ -1,10 +1,10 @@
-package model;
+package com.olympus.MovieApp.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.springframework.stereotype.Component;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Genre {
+public class Genres {
 
     private String name;
 
@@ -16,14 +16,5 @@ public class Genre {
         this.name = name;
     }
 
-    public Genre(String name) {
-        this.name = name;
-    }
 
-    @Override
-    public String toString() {
-        return "Genre{" +
-                "name='" + name + '\'' +
-                '}';
-    }
 }
