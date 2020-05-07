@@ -26,8 +26,7 @@ public class MovieController {
 //        System.out.println(movies[0].getName());
         response.getFeed().getResults().stream()
                 .filter(result ->result.getGenres().get(0).getName().equalsIgnoreCase("comedy") )
-                .forEach(result -> sb.append(result.getName() + " URL " + result.getUrl() +
-                        " GENRE " + result.getGenres().get(0).getName()+"\n"));
+                .forEach(result -> sb.append(result.getName() + " and URL " + result.getUrl() +"\n"));
 
         return sb.toString();
     }
