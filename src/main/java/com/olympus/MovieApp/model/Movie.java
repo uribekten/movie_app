@@ -1,4 +1,4 @@
-package model;
+package com.olympus.MovieApp.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -27,17 +27,11 @@ public class Movie {
         this.url = url;
     }
 
-    public Genre[] getGenre() {
+    public Genre[] getGenres() {
         return genres;
     }
 
-    public void setGenre(Genre[] genre) {
-        this.genres = genre;
-    }
-
-    public Movie(String name, String url, Genre[] genres) {
-        this.name = name;
-        this.url = url;
+    public void setGenres(Genre[] genres) {
         this.genres = genres;
     }
 
@@ -46,7 +40,7 @@ public class Movie {
         return "Movie{" +
                 "name='" + name + '\'' +
                 ", url='" + url + '\'' +
-                ", genres=" + Arrays.toString(genres) +
+                ", genre=" + Arrays.toString(genres) +
                 '}';
     }
 }
