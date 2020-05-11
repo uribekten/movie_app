@@ -2,18 +2,17 @@ package com.olympus.MovieApp.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-import java.util.List;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Feed {
-    public List<Results> getResults() {
+
+    private Movie[] results;
+
+    public Movie[] getResults() {
         return results;
     }
 
-    public void setResults(List<Results> results) {
+    public void setResults(Movie[] results) {
         this.results = results;
     }
-
-    private List<Results> results;
-
 }

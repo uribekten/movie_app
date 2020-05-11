@@ -2,8 +2,6 @@ package com.olympus.MovieApp.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-import java.io.Serializable;
-
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Response {
 
@@ -16,5 +14,4 @@ public class Response {
     public void setFeed(Feed feed) {
         this.feed = feed;
     }
-
 }

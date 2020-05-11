@@ -1,33 +1,36 @@
 package com.olympus.MovieApp.controllers;
 
-import com.olympus.MovieApp.model.Movie;
-import com.olympus.MovieApp.model.Response;
+
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.olympus.MovieApp.model.*;
+import com.olympus.MovieApp.services.MovieService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.client.RestTemplate;
+import org.springframework.web.bind.annotation.*;
+import java.util.List;
 
 @RestController
 @RequestMapping("/movies")
 public class MovieController {
 
+    MovieService movieService;
+
     @Autowired
-    RestTemplate restTemplate;
+    MovieController(MovieService movieService){
+        this.movieService = movieService;
+    }
 
+    @GetMapping("")
+    public String getGenresList() {
+        return movieService.getGenres();
+    }
 
-    @GetMapping("/comedies")
-    public String getMovies(){
-        Response response = restTemplate.getForObject(
-                "https://rss.itunes.apple.com/api/v1/us/movies/top-movies/all/25/explicit.json", Response.class
-        );
-        StringBuilder sb = new StringBuilder();
-//        Movie[] movies = response.getFeed().getResults();
-//        System.out.println(movies[0].getName());
-        response.getFeed().getResults().stream()
-                .filter(result ->result.getGenres().get(0).getName().equalsIgnoreCase("comedy") )
-                .forEach(result -> sb.append(result.getName() + " and URL " + result.getUrl() +"\n"));
+    @GetMapping("all")
+    public Response getAllMovies() {
+        return movieService.getMovies();
+    }
 
-        return sb.toString();
+    @GetMapping("/{genre}")
+    public List<GenreMovie> getComediesJson(@PathVariable String genre) throws JsonProcessingException {
+        return movieService.getMoviesByGenre(genre);
     }
 }
