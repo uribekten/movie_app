@@ -23,27 +23,12 @@ public class MovieController {
     }
 
     @GetMapping("all")
-    public Response getAllMovies(){
+    public Response getAllMovies() {
         return movieService.getMovies();
     }
 
-    @GetMapping("/comediesString")
-    public String getComedies(){
-        return movieService.getComediesString();
-    }
-
     @GetMapping("/{genre}")
-    public List<GenreMovie> getComediesJson(@PathVariable String genre) {
+    public List<GenreMovie> getComediesJson(@PathVariable String genre) throws JsonProcessingException {
         return movieService.getMoviesByGenre(genre);
-    }
-
-    @GetMapping("/messageJson")
-    public int messageSlackJson() throws JsonProcessingException {
-        return 0;
-    }
-
-    @GetMapping("/message")
-    public int messageSlack(){
-        return movieService.messageSlack();
     }
 }
