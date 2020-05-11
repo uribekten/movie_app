@@ -14,5 +14,4 @@ public class Response {
     public void setFeed(Feed feed) {
         this.feed = feed;
     }
-
 }

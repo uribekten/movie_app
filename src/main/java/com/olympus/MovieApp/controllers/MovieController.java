@@ -1,5 +1,6 @@
 package com.olympus.MovieApp.controllers;
 
+
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.olympus.MovieApp.model.*;
 import com.olympus.MovieApp.services.MovieService;
@@ -10,6 +11,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/movies")
 public class MovieController {
+
     MovieService movieService;
 
     @Autowired
